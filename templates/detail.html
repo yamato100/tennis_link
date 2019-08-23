@@ -16,11 +16,10 @@
                 </div>
                 <div class="alert alert-success mx-5 my-3" role="alert">
                     <p>タイトル：{{object.title}}</p>
-                    <p>日時：{{object.date}}</p>
-                    <p>場所：</p>
-                    <p>レベル：</p>
-                    <p>目的：</p>
-                    <p>投稿者：</p>
+		    <p>日時：{{object.date}}{{object.time}}</p>
+		    <p>場所：{{object.place}}</p>
+		    <p>内容：{{object.content}}</p>
+		    <p>投稿者：{{object.author}}</p>
                 </div>
             <a class="btn btn-info" href="{% url 'list' %}" role="button">一覧に戻る</a>
             </div>

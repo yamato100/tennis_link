@@ -48,7 +48,7 @@ def detailfunc(request, pk):
 class BoardCreate(CreateView):
     template_name = 'create.html'
     model =TennisModel
-    fields = ('title', 'content', 'time', 'place', 'author')
+    fields = ('title', 'content', 'date', 'time', 'place', 'author')
     success_url = reverse_lazy('list')
 
 def topfunc(request):

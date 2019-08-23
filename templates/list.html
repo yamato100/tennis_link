@@ -17,11 +17,10 @@
                 {% for item in object_list %}
                 <div class="alert alert-success  mx-5 my-3" role="alert">
                     <p>タイトル：{{item.title}}</p>
-                    <p>日時：</p>
-                    <p>場所：</p>
-                    <p>レベル：</p>
-                    <p>目的：</p>
-                    <p>投稿者：</p>
+		    <p>日時：{{item.date}}{{item.time}}</p>
+		    <p>場所：{{item.place}}</p>
+		    <p>内容：{{item.content}}</p>
+		    <p>投稿者：{{item.author}}</p>
                     <a href="{% url 'detail' item.pk %}" class="btn btn-primary btn" role="button" aria-pressed="true">詳細</a>
                 </div>
                 {% endfor %}

@@ -6,6 +6,7 @@ class TennisModel(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     author = models.CharField(max_length=100)
+    date = models.CharField(max_length=100, null=True)
     time = models.CharField(max_length=100, null=True)
     place = models.CharField(max_length=100, null=True)
 

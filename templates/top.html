@@ -39,7 +39,7 @@
                 <!-- / スライド02 -->
                 <!-- スライド03 -->
                 <div class="carousel-item">
-                  <img class="img-fluid" src="../media/header2.png" alt="店内写真">
+                  <img class="img-fluid" src="../media/header2.png" alt="コンセプト">
                   <div class="carousel-caption d-none d-md-block carousel-background">
                     <h2 class="carousel-color">～コンセプト2/2～</h2>
                     <p class="carousel-color">東三河テニスの活性化</p>
@@ -77,10 +77,10 @@
                 {% for item in object_list %}
                 <div class="card mx-5 my-3">
                     <h5 class="card-header">タイトル：{{item.title}}</h5>
-                    <p class="card-text mx-4 mt-2">日時：</p>
-                    <p class="card-text mx-4">場所：</p>
-                    <p class="card-text mx-4">目的：</p>
-                    <p class="card-text mx-4">投稿者：</p>
+		    <p class="card-text mx-4 mt-2">日時：{{item.date}}{{item.time}}</p>
+		    <p class="card-text mx-4">場所：{{item.place}}</p>
+		    <p class="card-text mx-4">内容：{{item.content}}</p>
+		    <p class="card-text mx-4">投稿者：{{item.author}}</p>
                     <a href="{% url 'detail' item.pk %}" class="btn btn-primary mx-5 my-3">詳細</a>
                 </div>
                 {% endfor %}
