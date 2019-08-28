@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+#本番環境(0)と開発環境(1)の切り替え
+env = 1
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,8 +28,10 @@ SECRET_KEY = '&)((j8&u)dvwq$0vm^2t(u*q47ya=h^pc=1e93e9$(ib=0y)xs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['202.182.104.11', 'localhost']
-
+if env == 0:
+    ALLOWED_HOSTS = ['202.182.104.11', 'localhost']
+else:
+    ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -74,8 +79,8 @@ WSGI_APPLICATION = 'tennis_matching.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
-DATABASES = {
+if env == 0:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'myproject',
@@ -84,7 +89,14 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     }
-}
+    }
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -124,11 +136,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'static')
-#]
+if env == 0:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+    STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+    ]
 
 LOGIN_URL = 'login'
 
