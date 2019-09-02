@@ -1,0 +1,38 @@
+{% extends 'matchapp/base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<div class="py-4">
+    <div class='container'>
+        <div class="row">
+            <div class='col-md-6 offset-md-1'>
+                <div class="alert alert-primary" role="alert">
+                    マイページ
+                </div>
+                <div class="alert alert-success mx-5 my-3" role="alert">
+                    <p>ユーザー名：{{ user.username }}</p>
+		            <p>パスワード：{{ user.password }}</p>
+		            <p>ユーザ作成日：{{ user.date_joined }}</p>
+                </div>
+            <a class="btn btn-info" href="{% url 'list' %}" role="button">一覧に戻る</a>
+            </div>
+
+            <div class="col-md-3 offset-md-1">
+                    <div style="background-color: cadetblue; text-align:center; margin: 20px 10px;">
+                        <h5>＜ログイン＞</h5>
+                        <a href="{% url 'login' %}"><img src="../media/login.png" alt="ログイン"></a>
+                    </div>
+                    <div style="background-color: darkkhaki; text-align:center; margin: 20px 10px;">
+                        <h5>＜ユーザー登録＞</h5>
+                        <a href="{% url 'signup' %}"><img src="../media/register.png" alt="ユーザー登録"></a>
+                    </div>
+            </div>    
+        </div>
+    </div>
+</div>
+{% endblock content %}
