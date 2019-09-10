@@ -3,17 +3,20 @@
 <table class="table">
     <tbody>
         <tr>
-            <th>ユーザー名</th>
+            <th>ユーザ名</th>
+            <td>{{ user.user_name }}</td>
+        </tr>
+        <tr>
+            <th>登録Eメールアドレス</th>
             <td>{{ user.email }}</td>
         </tr>
         <tr>
-            <th>姓</th>
-            <td>{{ user.last_name }}</td>
-        </tr>
-        <tr>
-            <th>名</th>
-            <td>{{ user.first_name }}</td>
+            <th>自己紹介</th>
+            <td>{{ user.user_introduction }}</td>
         </tr>
     </tbody>
 </table>
+
+<a href="{% url 'register:user_update' user.pk %}"  class="btn btn-info" role="button" aria-pressed="true">修正</a>
+
 {% endblock %}
