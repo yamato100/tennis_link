@@ -51,7 +51,34 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(_('last name'), max_length=150, blank=True)
     user_name = models.CharField(_('ユーザ名'), max_length=150, blank=True)
     user_introduction = models.TextField(_('自己紹介'), blank=True)
-    
+    SEX_CHOICES = (
+        (10, '男性'),
+        (20, '女性'),
+    )
+    user_sex = models.IntegerField(_('性別'),choices=SEX_CHOICES, blank=True, null=True)
+    AGE_CHOICES = (
+        (10, '10代'),
+        (20, '20代'),
+        (30, '30代'),
+        (40, '40代'),
+        (30, '50代'),
+        (60, '60代～'),
+    )
+    user_age = models.IntegerField(_('年齢'), choices=AGE_CHOICES, blank=True, null=True)
+    LEVEL_CHOICES = (
+        (10, '1.0'),
+        (20, '1.5'),
+        (30, '2.0'),
+        (40, '2.5'),
+        (50, '3.0'),
+        (60, '3.5'),
+        (70, '4.0'),
+        (80, '4.5'),
+        (90, '5.0'),
+        (100, '5.5'),
+        (100, '6.0'),
+    )
+    user_level = models.IntegerField(_('レベル(NTRP)'), choices=LEVEL_CHOICES, blank=True, null=True)    
 
     is_staff = models.BooleanField(
         _('staff status'),

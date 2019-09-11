@@ -20,7 +20,7 @@ class MyUserCreationForm(UserCreationForm):
 class MyUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'user_name', 'user_introduction')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'user_name', 'user_introduction', 'user_sex', 'user_age', 'user_level')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),

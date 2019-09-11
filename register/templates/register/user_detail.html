@@ -7,12 +7,24 @@
             <td>{{ user.user_name }}</td>
         </tr>
         <tr>
-            <th>登録Eメールアドレス</th>
-            <td>{{ user.email }}</td>
+            <th>性別</th>
+            <td>{{ user.get_user_sex_display }}</td>
+        </tr>
+        <tr>
+            <th>年齢</th>
+            <td>{{ user.get_user_age_display }}</td>
+        </tr>
+        <tr>
+            <th>レベル(NTRP)</th>
+            <td>{{ user.get_user_level_display }}</td>
         </tr>
         <tr>
             <th>自己紹介</th>
             <td>{{ user.user_introduction }}</td>
+        </tr>
+        <tr>
+            <th>登録Eメールアドレス</th>
+            <td>{{ user.email }}</td>
         </tr>
     </tbody>
 </table>
