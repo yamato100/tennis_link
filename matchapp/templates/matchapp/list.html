@@ -28,11 +28,11 @@
             <div class="col-md-3 offset-md-1">
                 <div style="background-color: cadetblue; text-align:center; margin: 20px 10px;">
                     <h5>＜ログイン＞</h5>
-                    <a href="{% url 'login' %}"><img src="../media/login.png" alt="ログイン"></a>
+                    <a href="{% url 'login' %}"><img src="{% static 'login.png' %}" alt="ログイン"></a>
                 </div>
                 <div style="background-color: darkkhaki; text-align:center; margin: 20px 10px;">
                     <h5>＜ユーザー登録＞</h5>
-                    <a href="{% url 'signup' %}"><img src="../media/register.png" alt="ユーザー登録"></a>
+                    <a href="{% url 'signup' %}"><img src="{% static 'register.png' %}" alt="ユーザー登録"></a>
                 </div>
             </div>           
         </div>
