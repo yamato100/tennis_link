@@ -32,7 +32,6 @@ def loginfunc(request):
             return render(request, 'matchapp/login.html')
     return render(request, 'matchapp/login.html')
 
-@login_required
 def listfunc(request):
     object_list = TennisModel.objects.all()
     return render(request, 'matchapp/list.html', {'object_list':object_list})
@@ -41,6 +40,7 @@ def logoutfunc(request):
     logout(request)
     return redirect('login')
 
+@login_required
 def detailfunc(request, pk):
     object = TennisModel.objects.get(pk=pk)
     return render(request, 'matchapp/detail.html', {'object':object})
@@ -56,6 +56,7 @@ def topfunc(request):
 #    reverse_object_list = reversed(object_list)
     object_new = list(reversed(object_list))[:3]   #モデルを最後に作った順にする
     return render(request, 'matchapp/top.html', {'object_list':object_new})
+    # return render(request, 'matchapp/top.html')
 
 @login_required
 def mypagefunc(request):
