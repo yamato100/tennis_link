@@ -138,8 +138,16 @@ AUTH_USER_MODEL = 'register.User'
 LOGIN_URL = 'register:login'
 LOGIN_REDIRECT_URL = 'top'
 
+# メールの設定
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# メールサーバーへの接続設定
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mikawa.tennis@gmail.com'
+EMAIL_HOST_PASSWORD = 'yutakagaoka'
+EMAIL_USE_TLS = True
 # メールをコンソールに表示する
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # メディアファイルの保存先
 MEDIA_URL = '/media/'
